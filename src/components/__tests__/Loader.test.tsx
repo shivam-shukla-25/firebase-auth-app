@@ -1,0 +1,19 @@
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import { Loader } from "../Loader";
+
+describe("Loader", () => {
+  it("renders default loading text", () => {
+    render(<Loader />);
+
+    expect(screen.getByText("Loading...")).toBeInTheDocument();
+  });
+
+  it("renders custom label", () => {
+    render(<Loader label="Loading dashboard..." />);
+
+    expect(
+      screen.getByText("Loading dashboard...")
+    ).toBeInTheDocument();
+  });
+});
